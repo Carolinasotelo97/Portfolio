@@ -1,47 +1,449 @@
-/* ... (todo el CSS anterior hasta antes de .profile-photo) ... */
+/*
+=====================================================
+    ESTILOS GENERALES Y VARIABLES (LIGHT MODE)
+    Fondo Blanco Suave y Lila Pastel
+=====================================================
+*/
 
-/* --- SECCIÓN SOBRE MÍ / EXPERTISE --- */
-.about-me-section {
-    text-align: center;
-    display: flex; /* Usamos flexbox para centrar y organizar */
-    flex-direction: column;
-    align-items: center; /* Centra los elementos horizontalmente */
+:root {
+    --color-light: #FFFFFF; /* Blanco puro para fondo (o #F5F5F5 para un blanco suave) */
+    --color-background-card: #F5F5F5; /* Fondo para Cards, ligeramente más oscuro que el principal */
+    --color-text: #212121; /* Texto Principal (Negro Suave) */
+    --color-secondary-text: #555555; /* Texto Secundario/Notas */
+    --color-primary-light: #A67CE1; /* Lila Principal (para acentos, más oscuro para contrastar) */
+    --color-primary-dark: #8C5BCF; /* Lila más oscuro para hover */
+    --color-accent: #E0E0E0; /* Gris de acento/Bordes (muy claro) */
+    --font-heading: 'Poppins', sans-serif; 
+    --font-body: 'Montserrat', sans-serif; 
 }
 
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-light); /* Fondo Blanco */
+    color: var(--color-text);
+    line-height: 1.6;
+    transition: background-color 0.5s;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+/* --- LAYOUT Y CONTENEDOR --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+/*
+=====================================================
+    HEADER Y NAVEGACIÓN
+=====================================================
+*/
+.main-header {
+    background-color: var(--color-light);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-accent);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--color-primary-light);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links .cta-button {
+    background-color: var(--color-primary-light);
+    color: var(--color-light); /* Texto blanco sobre lila */
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links .cta-button:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-light);
+}
+
+/*
+=====================================================
+    HERO SECTION
+=====================================================
+*/
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; 
+}
+
+.hero-title {
+    font-size: 4.5em; 
+    margin-bottom: 10px;
+    line-height: 1;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.05); /* Sombra muy sutil para nitidez */
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    color: var(--color-secondary-text); /* Subtítulo en gris suave */
+    margin-bottom: 40px;
+    max-width: 700px;
+    font-weight: 400; 
+}
+
+/* --- CTA PRINCIPAL (Botones) --- */
+.main-cta {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-primary-light);
+    color: var(--color-light);
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.main-cta:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-light);
+    transform: translateY(-2px); 
+}
+
+/*
+=====================================================
+    SECCIÓN SOBRE MÍ / EXPERTISE
+=====================================================
+*/
+.about-me-section {
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* ESTILO DE FOTO DE PERFIL */
 .profile-photo {
-    width: 120px; /* Tamaño más pequeño para un detalle */
-    height: 120px; /* Mismo tamaño para mantenerla circular */
-    border-radius: 50%; /* Hacerla circular */
-    object-fit: cover; /* Asegura que la imagen se vea bien */
-    margin-bottom: 25px; /* Menos espacio hacia abajo */
-    border: 3px solid var(--color-primary-light); /* Borde lila pastel */
-    box-shadow: 0 0 10px rgba(193, 165, 245, 0.3); /* Sombra más sutil */
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 25px; 
+    border: 3px solid var(--color-primary-light); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra clara y definida */
     transition: transform 0.3s ease-in-out;
 }
 
 .profile-photo:hover {
-    transform: scale(1.08); /* Un poco más de zoom al pasar el mouse para interactividad */
+    transform: scale(1.08); 
 }
 
 .about-me-section h2 {
-    font-size: 2.5em; /* Reducir ligeramente el tamaño del título "¡Hola!" */
+    font-size: 2.5em; 
     margin-bottom: 15px;
     color: var(--color-text); 
 }
 
 .about-me-section h3 { 
-    font-size: 1.8em; /* Reducir ligeramente el tamaño del título "Mi Stack Principal" */
-    margin-top: 50px; /* Ajustar el espacio superior */
+    font-size: 1.8em; 
+    margin-top: 50px; 
     margin-bottom: 25px;
     color: var(--color-primary-light); 
 }
 
 .about-text {
-    max-width: 700px; /* Ajustar el ancho máximo para el texto */
-    margin: 0 auto 30px auto; /* Centrar y ajustar espacio */
-    font-size: 1.1em; /* Ligeramente más pequeña la fuente */
-    color: #ccc;
+    max-width: 700px; 
+    margin: 0 auto 30px auto; 
+    font-size: 1.1em; 
+    color: var(--color-secondary-text);
     font-weight: 300; 
 }
 
-/* ... (el resto del CSS permanece igual) ... */
+/* --- EXPERTISE / HABILIDADES --- */
+.expertise-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    flex-wrap: wrap; 
+}
+
+.skill-card {
+    padding: 15px 25px;
+    background-color: var(--color-accent); /* Gris claro para el fondo del badge */
+    border-radius: 5px;
+    font-weight: 600;
+    color: var(--color-text); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+    font-size: 0.7em;
+    font-weight: 300;
+    color: var(--color-primary-light); 
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+/*
+=====================================================
+    SECCIÓN DE PROYECTOS
+=====================================================
+*/
+.section-title {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 60px;
+    color: var(--color-primary-light);
+}
+
+.project-card {
+    background-color: var(--color-background-card); 
+    border: 1px solid var(--color-accent);
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para elevación */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.project-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra ligeramente más grande al hover */
+}
+
+.project-card h3 {
+    color: var(--color-text); /* Título en negro */
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+/* ESTILOS PARA LAS IMÁGENES DE PROYECTO */
+.project-card img {
+    width: 100%; 
+    max-width: 900px; 
+    height: auto;
+    border-radius: 6px; 
+    margin-bottom: 30px;
+    border: 1px solid var(--color-accent); 
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card img:hover {
+    transform: scale(1.005); 
+}
+
+
+.role {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: var(--color-secondary-text); 
+}
+
+.project-card p {
+    margin-bottom: 20px;
+    max-width: 700px; 
+    font-weight: 300; 
+}
+
+.tech-stack {
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: var(--color-primary-light);
+    font-weight: 600;
+}
+
+.project-links {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.link-demo, .link-code {
+    padding: 10px 20px;
+    border: 1px solid var(--color-primary-light);
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--color-primary-light);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.link-demo:hover, .link-code:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-light); /* Texto blanco en hover */
+    border-color: var(--color-primary-dark);
+}
+
+
+/*
+=====================================================
+    CONTACTO Y FOOTER
+=====================================================
+*/
+.contact-section {
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.contact-section h2 {
+    font-size: 3em;
+    color: var(--color-primary-light);
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-secondary-text);
+}
+
+.large-cta {
+    padding: 15px 40px;
+    font-size: 1.1em;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--color-accent);
+    font-size: 0.8em;
+    color: var(--color-secondary-text);
+}
+
+/*
+=====================================================
+    MEDIA QUERIES (RESPONSIVE DESIGN)
+=====================================================
+*/
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3em;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2em;
+    }
+
+    .nav-links {
+        display: none; 
+    }
+
+    .main-header .container {
+        justify-content: center; 
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+
+    .project-card {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .project-card h3 {
+        font-size: 1.6em;
+    }
+
+    .project-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .link-demo, .link-code {
+        width: 80%; 
+        margin: 0 auto;
+    }
+
+    .expertise-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-card {
+        width: 80%;
+    }
+    
+    .about-me-section h2 {
+        font-size: 2em; 
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5em;
+    }
+    .hero-subtitle {
+        font-size: 1em;
+    }
+    .main-cta.large-cta {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+}
