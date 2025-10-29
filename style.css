@@ -168,16 +168,18 @@ a:hover {
 .about-photo-container {
     flex-shrink: 0; 
     width: 30%; 
-    padding-top: 50px; 
+    padding-top: 20px; 
     text-align: center;
 }
 
 .profile-photo {
-    /* AJUSTE DE TAMAÑO: 150px -> 180px */
+    /* TAMAÑO FINAL DE ESCRITORIO: 180px */
     width: 180px; 
     height: 180px; 
     border-radius: 50%; 
     object-fit: cover; 
+    /* AJUSTE CLAVE: Prioriza la parte superior de la imagen */
+    object-position: top; 
     margin-bottom: 25px; 
     border: 3px solid var(--color-primary-light); 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
@@ -238,11 +240,12 @@ a:hover {
 }
 
 .badge {
-    font-size: 0.7em;
-    font-weight: 300;
-    color: var(--color-primary-light); 
+    /* AJUSTE DE TAMAÑO DE FUENTE Y COLOR PARA LEGIBILIDAD */
+    font-size: 0.8em; 
+    font-weight: 400; /* Ligeramente más grueso */
+    color: var(--color-primary-dark); /* Color más oscuro para mejor contraste */
     margin-top: 3px;
-    opacity: 0.9;
+    opacity: 1;
 }
 
 /*
@@ -501,10 +504,10 @@ footer {
         font-size: 1em;
     }
     
-    /* AJUSTE DE TAMAÑO MÓVIL: 100px -> 120px */
     .profile-photo {
         width: 120px;
         height: 120px;
+        object-position: top; 
     }
 
     .linkedin-link {
